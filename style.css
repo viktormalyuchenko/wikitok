@@ -1,0 +1,137 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: sans-serif;
+  background-color: white;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  transition: transform 0.3s ease-out;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: white;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.card.active {
+  z-index: 1;
+  transform: translateY(0);
+  display: flex;
+}
+
+.card.prev {
+  transform: translateY(-100%);
+   display: block;
+   z-index: 0;
+}
+
+.card.next {
+  transform: translateY(100%);
+  display: block;
+  z-index: 0;
+}
+
+.card h2 {
+  margin-top: 0;
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.card p {
+  font-size: 1em;
+  line-height: 1.4;
+  margin-bottom: 1em;
+   /*  Добавляем стили для ограничения текста: */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 5; /* Максимальное количество строк */
+  -webkit-box-orient: vertical;
+}
+
+.card a {
+  color: white;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.card-content{
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 15px;
+  border-radius: 8px;
+}
+#loading-indicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 20px;
+  font-style: italic;
+  color: #888;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  display: none; /* Скрыт по умолчанию */
+}
+
+.error-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  color: red;
+  text-align: center;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 5px;
+}
+
+.language-selector {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+}
+
+.language-selector select {
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 0.9em;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding-right: 25px; /*  Отступ справа для стрелочки (если она есть) */
+}
+.language-selector select:after { /* Добавляем кастомную стрелочку */
+  content: '▾';
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none; /* Чтобы не мешала кликам */
+}
