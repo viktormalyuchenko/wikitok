@@ -62,14 +62,23 @@ html, body {
   font-size: 1em;
   line-height: 1.4;
   margin-bottom: 1em;
-   /*  Добавляем стили для ограничения текста: */
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 5; /* Максимальное количество строк */
   -webkit-box-orient: vertical;
-}
+  line-height: 1.4;  /*  Для лучшего отображения */
 
+  /*  Для мобильных (по умолчанию) */
+  -webkit-line-clamp: 5; /*  Например, 5 строк */
+
+  /*  Для десктопов (больше текста) */
+  @media (min-width: 1024px) { /*  Например, от 1024px */
+    -webkit-line-clamp: 10; /*  Например, 10 строк */
+  }
+   @media (min-width: 1920px) {
+       -webkit-line-clamp: 15; /*  Например, 10 строк */
+   }
+  }
 .card a {
   color: white;
   text-decoration: underline;

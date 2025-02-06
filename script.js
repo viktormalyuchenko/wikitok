@@ -87,11 +87,12 @@ async function fetchArticleContent(pageId, language) { // Добавляем п�
               }
 
             }
-            const maxTextLength = 300; // Максимальная длина текста
+            const maxTextLength = 1000; // Максимальная длина текста
             let extract = page.extract;
              if (extract.length > maxTextLength) {
                 extract = extract.substring(0, maxTextLength) + "..."; // Обрезаем и добавляем многоточие
             }
+            extract = addLineBreaks(extract); // Добавляем переносы строк
 
             return {
                 title: page.title,
@@ -108,6 +109,12 @@ async function fetchArticleContent(pageId, language) { // Добавляем п�
         return null;
     }
 }
+
+function addLineBreaks(text) {
+    //  Эвристика: добавляем перенос строки после точки, если следующий символ - заглавная буква или цифра.
+      return text.replace(/\.([A-ZА-ЯЁ0-9])/g, '.\n$1').replace(/\n+/g, '\n'); //Убираем лишние переносы
+  }
+
 function displayArticle(article) {
     const card = document.createElement('div');
     card.classList.add('card');
@@ -130,7 +137,8 @@ function displayArticle(article) {
 
     const link = document.createElement('a');
     const language = languageSelect.value;
-    link.href = `https://${language}.wikipedia.org/?curid=${article.pageid}`;
+    // ИЗМЕНЕНИЕ: Используем title вместо pageid
+    link.href = `https://${language}.wikipedia.org/wiki/${encodeURIComponent(article.title)}`; //  encodeURIComponent
     link.textContent = 'Читать полностью';
     link.target = '_blank';
     cardContent.appendChild(link);
@@ -138,6 +146,7 @@ function displayArticle(article) {
      card.appendChild(cardContent);
     cardsContainer.appendChild(card);
 }
+
 function displayError(message) {
     let errorElement = document.querySelector('.error-message');
 
