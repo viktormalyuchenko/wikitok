@@ -259,3 +259,25 @@ document.addEventListener('DOMContentLoaded', () => {
         fetchRandomArticles();
     });
 });
+
+//  Модальное окно "О проекте"
+const modal = document.getElementById("about-modal");
+const btn = document.getElementById("about-btn");
+const span = document.getElementsByClassName("close-btn")[0];
+
+//  Открыть модальное окно при клике на кнопку
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+//  Закрыть модальное окно при клике на крестик
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+//  Закрыть модальное окно при клике вне его
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
