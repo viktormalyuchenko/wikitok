@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -42,8 +43,8 @@ html, body {
 
 .card.prev {
   transform: translateY(-100%);
-   display: block;
-   z-index: 0;
+  display: block;
+  z-index: 0;
 }
 
 .card.next {
@@ -66,30 +67,38 @@ html, body {
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  line-height: 1.4;  /*  Для лучшего отображения */
+  line-height: 1.4;
+  /*  Для лучшего отображения */
 
   /*  Для мобильных (по умолчанию) */
-  -webkit-line-clamp: 5; /*  Например, 5 строк */
+  -webkit-line-clamp: 5;
+  /*  Например, 5 строк */
 
   /*  Для десктопов (больше текста) */
-  @media (min-width: 1024px) { /*  Например, от 1024px */
-    -webkit-line-clamp: 10; /*  Например, 10 строк */
+  @media (min-width: 1024px) {
+    /*  Например, от 1024px */
+    -webkit-line-clamp: 10;
+    /*  Например, 10 строк */
   }
-   @media (min-width: 1920px) {
-       -webkit-line-clamp: 15; /*  Например, 10 строк */
-   }
+
+  @media (min-width: 1920px) {
+    -webkit-line-clamp: 15;
+    /*  Например, 10 строк */
   }
+}
+
 .card a {
   color: white;
   text-decoration: underline;
   font-weight: bold;
 }
 
-.card-content{
+.card-content {
   background-color: rgba(0, 0, 0, 0.6);
   padding: 15px;
   border-radius: 8px;
 }
+
 #loading-indicator {
   position: absolute;
   top: 50%;
@@ -102,7 +111,8 @@ html, body {
   z-index: 10;
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 10px;
-  display: none; /* Скрыт по умолчанию */
+  display: none;
+  /* Скрыт по умолчанию */
 }
 
 .app-name {
@@ -111,10 +121,14 @@ html, body {
   left: 10px;
   font-size: 1.5em;
   font-weight: bold;
-  color: #333; /*  Цвет текста */
-  z-index: 10; /*  Чтобы название было поверх карточек */
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /*  Тень для лучшей читаемости */
+  color: #333;
+  /*  Цвет текста */
+  z-index: 10;
+  /*  Чтобы название было поверх карточек */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  /*  Тень для лучшей читаемости */
 }
+
 .error-message {
   position: absolute;
   top: 50%;
@@ -129,82 +143,97 @@ html, body {
 }
 
 .top-right-controls {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    /*  z-index: 10;  -  УДАЛЯЕМ z-index отсюда */
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end; /* Выравнивание по правому краю */
-    gap: 5px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  /*  z-index: 10;  -  УДАЛЯЕМ z-index отсюда */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  /* Выравнивание по правому краю */
+  gap: 5px;
 }
 
 .language-selector {
-    position: relative; /*  Добавляем относительное позиционирование */
-    z-index: 11;        /*  Устанавливаем z-index БОЛЬШЕ, чем у кнопки */
+  position: relative;
+  /*  Добавляем относительное позиционирование */
+  z-index: 11;
+  /*  Устанавливаем z-index БОЛЬШЕ, чем у кнопки */
 }
+
 .language-selector select {
-    padding: 5px;
-    border-radius: 5px;
-    font-size: 0.9em;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    padding-right: 25px;
-     z-index: 11; /*  Добавляем */
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 0.9em;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding-right: 25px;
+  z-index: 11;
+  /*  Добавляем */
 }
 
 #about-btn {
-    z-index: 10;
-    padding: 5px;
-    background-color: #fff;
-    color: #000;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 0.9em;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    padding-right: 29px;
-     width: fit-content;
-    position: relative;
+  z-index: 10;
+  padding: 5px;
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-right: 29px;
+  width: fit-content;
+  position: relative;
 }
 
 #about-btn:after {
-    content: 'ℹ️';
-    position: absolute;
-    top: 50%;
-    right: 5px;
-    transform: translateY(-50%);
-    pointer-events: none;
+  content: 'ℹ️';
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  transform: translateY(-50%);
+  pointer-events: none;
 }
 
 /*  Стили для модального окна */
 .modal {
-  display: none; /*  Скрыто по умолчанию */
+  display: none;
+  /*  Скрыто по умолчанию */
   position: fixed;
-  z-index: 100; /*  Поверх всего */
+  z-index: 100;
+  /*  Поверх всего */
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto; /*  Если содержимое не помещается */
-  background-color: rgba(0, 0, 0, 0.6); /*  Полупрозрачный фон */
+  overflow: auto;
+  /*  Если содержимое не помещается */
+  background-color: rgba(0, 0, 0, 0.6);
+  /*  Полупрозрачный фон */
 }
 
 .modal-content {
   background-color: #fefefe;
-  margin: 10% auto; /*  Отступы сверху/снизу и по центру */
+  margin: 10% auto;
+  /*  Отступы сверху/снизу и по центру */
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /*  Ширина */
-  max-width: 600px; /*  Максимальная ширина */
-  border-radius: 8px; /*  Скругленные углы */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /*  Тень */
-  position: relative; /*Для кнопки закрытия*/
+  width: 80%;
+  /*  Ширина */
+  max-width: 600px;
+  /*  Максимальная ширина */
+  border-radius: 8px;
+  /*  Скругленные углы */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  /*  Тень */
+  position: relative;
+  /*Для кнопки закрытия*/
 }
 
 .close-btn {
@@ -212,7 +241,8 @@ html, body {
   /*float: right; Убираем, чтобы спозиционировать*/
   font-size: 28px;
   font-weight: bold;
-  position: absolute; /*Абсолютное позицианирование*/
+  position: absolute;
+  /*Абсолютное позицианирование*/
   top: 10px;
   right: 15px;
 }
@@ -223,13 +253,12 @@ html, body {
   text-decoration: none;
   cursor: pointer;
 }
+
 /*Адаптивность*/
 @media (max-width: 768px) {
   .modal-content {
-      margin: 30% auto;/*Меняем отступы*/
-      width: 90%;
+    margin: 30% auto;
+    /*Меняем отступы*/
+    width: 90%;
   }
-  #about-btn{
-    right: 60px; /*Меняем отступы*/
-}
 }
